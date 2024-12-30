@@ -52,7 +52,7 @@ app.use((req, res, next) => {
 });
 
 // This is for the first landing of the app
-app.get("/landing", userController.landinPage);
+app.get("/", userController.landinPage);
 // Thsi is to get all the jobs listed
 app.get("/jobs", jobController.jobListing);
 
@@ -60,7 +60,7 @@ app.get("/jobs", jobController.jobListing);
 app.get("/job-detail/:id", jobController.jobDetails);
 
 // after adding a user to the appliation
-app.post("/landing", userController.addUser);
+app.post("/", userController.addUser);
 app.post("/jobs", jobController.jobListing);
 
 // This is for updating the job and for its validtion

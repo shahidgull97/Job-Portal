@@ -17,6 +17,9 @@ export default class UserController {
     // console.log(req.body);
 
     const newUser = userRegistration(req.body);
+    if (newUser) {
+      res.redirect("/");
+    }
   };
 
   // This is for login of the user
@@ -61,7 +64,7 @@ export default class UserController {
       if (err) {
         console.log(err);
       } else {
-        res.redirect("/landing");
+        res.redirect("/");
       }
     });
   };
