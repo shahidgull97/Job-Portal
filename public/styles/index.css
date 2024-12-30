@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: black;
+  background-color: white;
+}
+
+.container-lpage {
+  background-color: rgb(10, 32, 128);
+  display: flex;
+  color: white;
+  /* margin: 0 2rem; */
+}
+.text-container {
+  text-align: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-left: 3rem;
+}
+.text-container h5 {
+  margin-bottom: 3rem;
+}
+.text-container button {
+  margin: 1rem;
+  color: white;
+  background-color: plum;
+}
+
+/* styles for job lists */
+.card {
+  background-color: #1d1e30;
+  border: 1px solid #3a3b5a;
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.badge {
+  background-color: #0dcaf0;
+  color: #0b0e1a;
+  font-weight: 600;
+}
+
+.location,
+.salary {
+  color: #dee2e6;
+  font-size: 0.9rem;
+}
+
+.btn {
+  background-color: transparent;
+  border: 1px solid #198754;
+  color: #198754;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background-color: #198754;
+  color: white;
+}
+
+.skills .badge {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+/* job Description styling */
+.job-detail-container {
+  margin: 1rem 3rem;
+}
+
+/* JOB UPDATE */
+.update-container {
+  width: 50%;
+  margin: 2rem auto;
+  box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+/* styles for job Detail view */
+.job-detail-container {
+  margin: 2rem 5rem;
+}
+.job-detail-container h1 {
+  color: #c24e2b;
+}
+#activeHiring {
+  padding: 0.3rem;
+  border: 2px solid rgb(145, 97, 9);
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+
+/* styles for 404 page */
+
+.container-404 {
+  background-color: #71b1b1;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.container-404 h1 {
+  font-size: 4em;
+  color: #333;
+}
+.container-404 p {
+  font-size: 1.5em;
+  color: #666;
+}
+.cta {
+  margin-top: 20px;
+}
+.cta a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.cta a:hover {
+  background-color: #0056b3;
+}
+#lottie-animation {
+  width: 300px;
+  margin: 20px auto;
+}

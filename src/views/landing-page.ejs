@@ -1,0 +1,182 @@
+<div>
+  <%if(error){%>
+  <div class="alert alert-danger" role="alert"><%=error%></div>
+  <%}%>
+  <div class="container-lpage">
+    <div class="text-container">
+      <h1>A comprhensive platform for reliable</h1>
+      <h3>job opportunities and interships</h3>
+      <h5>Get Discovered. Get Hired</h5>
+      <div>
+        <a href="/jobs"
+          ><button type="button" class="btn btn-primary">
+            I'm a job seeker
+          </button></a
+        >
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#registerModal"
+        >
+          I'm a Recruiter
+        </button>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="/images/banner.png" alt="" />
+    </div>
+  </div>
+</div>
+
+<!-- Registration Form -->
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="registerModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="registerModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalLabel">Experience easily!</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/landing" method="POST">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Name"
+              name="name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Email"
+              name="email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              name="password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary" id="registerBtn">
+            Register
+          </button>
+        </form>
+
+        <div class="login-link">
+          Already registered?
+          <button type="submit" class="btn btn-success" id="openLoginModal">
+            Login
+          </button>
+        </div>
+
+        <div class="social-icons">
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-whatsapp"></i>
+          <i class="fab fa-linkedin"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/userlogin" method="POST">
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Email"
+              name="email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              name="password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPT -->
+
+<script>
+  // Handle clicking on the login link
+  document
+    .getElementById("openLoginModal")
+    .addEventListener("click", function () {
+      // Hide the register modal
+      $("#registerModal").modal("hide");
+
+      // Open the login modal after a small delay to ensure smooth transition
+      setTimeout(function () {
+        $("#loginModal").modal("show");
+      }, 500);
+    });
+  // Handling clicking on Register button
+  document.getElementById("registerBtn").addEventListener("click", function () {
+    // Hide the register modal
+    $("#registerModal").modal("hide");
+
+    // Open the login modal after a small delay to ensure smooth transition
+    setTimeout(function () {
+      $("#loginModal").modal("show");
+    }, 500);
+  });
+</script>

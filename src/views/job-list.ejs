@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <%if(isLoggedIn){%> <%if(locals.lastVisit){%>
+  <div class="alert alert-info" role="alert">
+    Last visited on: <%=locals.lastVisit%>
+  </div>
+  <%}%> <%}%>
+
+  <div class="row g-4">
+    <!-- Job Card 1 -->
+    <%jobs.forEach((job)=>{%>
+    <div class="col-md-4">
+      <div class="card p-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="badge"><%=job.tag%></span>
+        </div>
+        <h4 class="mt-3 text-warning"><%=job.company%></h4>
+        <p class="text-muted"><%=job.role%></p>
+        <p class="location">
+          <i class="bi bi-geo-alt-fill"></i> <%=job.location%>
+        </p>
+        <p class="salary"><%=job.pacakage%></p>
+
+        <div class="skills mb-3">
+          <%job.skills.forEach((job)=>{%>
+          <span class="badge"><%=job%></span>
+          <%})%>
+        </div>
+        <a href="/job-detail/<%=job.id%>">
+          <button class="btn btn-outline-success w-100">View details</button>
+        </a>
+      </div>
+    </div>
+    <%})%>
+  </div>
+</div>

@@ -1,0 +1,149 @@
+<div class="job-detail-container">
+  <div>
+    <h1><%=jobData.role%> Opportunity in <%=jobData.company%></h1>
+  </div>
+  <div class="jobcard" style="width: 18rem">
+    <div>
+      <div id="activeHiring" style="width: 10rem">
+        Actively Hiring
+        <i class="fa-solid fa-arrow-trend-up" style="color: #63e6be"></i>
+      </div>
+      <% if(isLoggedIn){%>
+      <a href="/update/<%=jobData.id%>"><i class="fa-solid fa-file-pen"></i></a>
+
+      <button
+        class="btn"
+        onclick="deleteProduct(`<%=jobData.id%>`)"
+        style="border: none"
+      >
+        <i class="fa-regular fa-file-excel"></i>
+      </button>
+      <%}%>
+    </div>
+    <div class="jobcard-body">
+      <h5 class="card-title"><%=jobData.company%></h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        <%=jobData.jobCatagory%> <%=jobData.role%>
+      </h6>
+      <p class="Jcard-text">
+        <i class="fa-solid fa-map-pin"></i> <%=jobData.location%>
+      </p>
+      <p class="Jcard-text">
+        <i class="fa-solid fa-indian-rupee-sign"></i> <%=jobData.package%>
+      </p>
+      <p class="Jcard-text">
+        <i class="fa-solid fa-hourglass-start"></i> Apply By
+        <%=jobData.applyby%>
+      </p>
+      <p class="Jcard-text">
+        <i class="fa-sharp fa-solid fa-signal"></i> Number of openings:
+        <%=jobData.openings%>
+      </p>
+      <p class="Jcard-text">
+        <a href="/applicants"
+          ><i class="fa-solid fa-user-group"></i> Applicants:
+          <%=jobData.Applicants%></a
+        >
+      </p>
+      <div class="skills mb-3">
+        <%jobData.skills.forEach((job)=>{%>
+        <span class="badge"><%=job%></span>
+        <%})%>
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#formModal"
+      >
+        Apply Now
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Button to Open the Modal -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="formModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="formModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="formModalLabel">Submit Your Details</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form
+        action="/jobapplicants/<%=jobData.id%>"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="name">Name</label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="contact">Contact</label>
+            <input
+              type="tel"
+              class="form-control"
+              id="contact"
+              placeholder="+91--- --- ----"
+              name="contact"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="file">Resume</label>
+            <input
+              type="file"
+              class="form-control"
+              id="file"
+              name="file"
+              required
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary" onclick="sendAlert()">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

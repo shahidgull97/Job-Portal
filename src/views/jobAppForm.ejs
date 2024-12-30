@@ -1,0 +1,9 @@
+<!-- <script>
+  const error = "<%= error %>";
+  if (error) {
+    alert(error); // This runs in the browser
+  }
+</script> -->
+<%error.forEach((err)=>{%>
+<div class="alert alert-danger" role="alert"><%= err.msg%></div>
+<%})%>
